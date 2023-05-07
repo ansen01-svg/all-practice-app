@@ -3,8 +3,8 @@ const authentication = require('../middlewares/authentication');
 const router = require('express').Router();
 
 
-router.route('/currentUser').get(authentication, getCurrentUser);
 router.route('/editProfile').patch(authentication, editUserProfile);
+router.route('/currentUser').get(authentication, getCurrentUser);
 
 
 module.exports = router;
