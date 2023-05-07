@@ -22,7 +22,7 @@ const userSchema = new mongoose.Schema({
     education: {
         type: String,
         enum: ['Class 10', 'Class 12', 'Graduate', 'Post graduate'],
-    }
+    },
 },
 { timestamps: true },
 );
