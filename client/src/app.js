@@ -8,6 +8,7 @@ import SharedLayout from './pages/shared_layout';
 const LoginPage = lazy(() => import('./pages/login'));
 const HomePage = lazy(() => import('./pages/home'));
 const ProfilePage = lazy(() => import('./pages/profile'));
+const ErrorPage = lazy(() => import('./pages/error'));
 
 const App = () => {
     return (
@@ -25,8 +26,9 @@ const App = () => {
                         }
                     >
                         <Route index element={ <HomePage /> } />
-                        <Route path="/profile/:user" element={ <ProfilePage /> } />
+                        <Route path="profile/:user" element={ <ProfilePage /> } />
                     </Route>
+                    <Route path="*" element={ <ErrorPage /> } />
                 </Router>
             </BrowserRouter>
         </>
