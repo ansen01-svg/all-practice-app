@@ -1,7 +1,7 @@
 import React, { lazy } from "react";
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import ProtectedRoute from './components/protected_route';
-import UserContextProvider, { useUserContext } from './context/user';
+import UserContextProvider from './context/user';
 import Register from './pages/register';
 import SharedLayout from './pages/shared_layout';
 
@@ -12,9 +12,6 @@ const ProfilePage = lazy(() => import('./pages/profile'));
 const ErrorPage = lazy(() => import('./pages/error'));
 
 const App = () => {
-
-    const { user } = useUserContext();
-
     return (
         <>
             <BrowserRouter>
@@ -32,7 +29,7 @@ const App = () => {
                         }
                     >
                         <Route index element={ <HomePage /> } />
-                        <Route path={user.username} element={ <ProfilePage /> } />
+                        <Route path='profile' element={ <ProfilePage /> } />
                     </Route>
                     <Route path="*" element={ <ErrorPage /> } />
                 </Routes>
