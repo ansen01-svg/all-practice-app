@@ -2,6 +2,7 @@ import React, { createContext, useContext, useEffect, useState } from "react";
 
 
 const userContext = createContext(null);
+const api_endpoint = '/all_purpose_practice/user/currentUser';
 
 const UserContextProvider = ({ children }) => {
 
@@ -10,7 +11,7 @@ const UserContextProvider = ({ children }) => {
     useEffect(() => getUser(), []);
 
     const getUser = () => {
-        fetch('/all_purpose_practice/user/currentUser', {
+        fetch(api_endpoint, {
             method: 'GET',
             headers: { 'Content-Type':'application/json;utf-8' },
         })
