@@ -6,7 +6,7 @@ const FallBackComponent = ({ error, resetErrorBoundary }) => {
         <Wrapper>
             <p>An error occured</p>
             <p>{error.message}</p>
-            <button onClick={resetErrorBoundary}>Try again.</button>
+            <button onClick={resetErrorBoundary}>Try again</button>
         </Wrapper>
     )
 }
