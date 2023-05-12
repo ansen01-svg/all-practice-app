@@ -1,6 +1,11 @@
 import { createTheme } from "@mui/material";
 
 const theme = createTheme({
+  pallete: {
+    primary: {
+      buttonColor: '#238636',
+    }
+  } ,
   typography: {
     fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Open Sans, Helvetica Neue, sans-serif',
     allVariants: {

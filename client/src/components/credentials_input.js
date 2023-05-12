@@ -4,20 +4,21 @@ import React from 'react';
 
 const CredentialsInput = (props) => {
 
-    const { placeholder, type, value, onChange } = props;
+    const { placeholder, type, value, name, onChange } = props;
 
     return (
         <TextField
             id="outlined-basic"
-            label="Outlined"
             variant="outlined"
+            name={name}
             type={type}
             placeholder={placeholder}
             value={value}
             required={true}
             autoFocus={true}
-            helperText='Incorrect entry' 
             onChange={onChange}
+            size='small'
+            sx={{width: '100%', color: 'white'}}
         />
     )
 }
