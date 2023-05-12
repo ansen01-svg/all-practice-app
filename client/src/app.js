@@ -1,5 +1,6 @@
-import React, { lazy } from "react";
+import React, { Suspense, lazy } from "react";
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Loading from "./components/loading";
 import ProtectedRoute from './components/protected_route';
 import UserContextProvider from './context/user';
 import Register from './pages/register';
@@ -16,11 +17,7 @@ const App = () => {
         <>
             <BrowserRouter>
                 <Routes>
-                    <Route path="/register" element={ <Register /> } />
-                    <Route path="/login" element={ <LoginPage /> } />
-                    <Route
-                        path="/" 
-                        element={
+                    <Route path="/" element={
                             <ProtectedRoute>
                                 <UserContextProvider>
                                     <SharedLayout />
@@ -28,10 +25,28 @@ const App = () => {
                             </ProtectedRoute>
                         }
                     >
-                        <Route index element={ <HomePage /> } />
-                        <Route path='profile' element={ <ProfilePage /> } />
+                        <Route index element={
+                            <Suspense fallback={<Loading />}>
+                                <HomePage /> 
+                            </Suspense>
+                        } />
+                        <Route path='profile' element={
+                            <Suspense fallback={<Loading />}>
+                                <ProfilePage /> 
+                            </Suspense>
+                        } />
                     </Route>
-                    <Route path="*" element={ <ErrorPage /> } />
+                    <Route path="/register" element={ <Register /> } />
+                    <Route path="/login" element={
+                        <Suspense fallback={<Loading />}>
+                            <LoginPage /> 
+                        </Suspense>
+                    } />
+                    <Route path="*" element={
+                        <Suspense fallback={<Loading />}>
+                            <LoginPage /> 
+                        </Suspense>
+                    } />
                 </Routes>
             </BrowserRouter>
         </>
