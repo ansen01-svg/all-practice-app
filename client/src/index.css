@@ -1,0 +1,20 @@
+:root {
+    --form_color: #21262d;
+    --auth_button_color: #238636;
+    --border_color: #30363d;
+    --blue_prmary: #2f81f7;
+}
+
+*, ::before, ::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+li {
+    list-style-type: none;
+}
