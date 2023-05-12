@@ -14,11 +14,6 @@ export const MainWrapper = styled.div`
 
 export const FormWrapper = styled.div`
     padding: 16px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 20px;
     border: 1px solid #30363d;
     border-radius: 6px;
 `

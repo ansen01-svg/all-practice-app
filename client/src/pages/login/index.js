@@ -1,5 +1,6 @@
 import { Typography } from '@mui/material';
 import React from 'react';
+import CredentialsForm from '../../components/credentials_form';
 import { FormWrapper, LinkWrapper, MainWrapper, TextWrapper } from '../../reusable_styles/wrappers';
 
 
@@ -24,8 +25,21 @@ const Header = () => {
 }
 
 const FormHolder = () => {
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+    }
+
+    const onChange = (e) => {}
+
     return (
-        <FormWrapper></FormWrapper>
+        <FormWrapper>
+            <CredentialsForm
+                handleSubmit={handleSubmit}
+                onChange={onChange}
+                title='Sign in'
+            />
+        </FormWrapper>
     )
 }
 
@@ -36,7 +50,7 @@ const Footer = () => {
         >
             <Typography variant='p1'>
                 New here? &nbsp;
-                <LinkWrapper>
+                <LinkWrapper to='/register'>
                     Create an account.
                 </LinkWrapper>
             </Typography>
