@@ -20,6 +20,7 @@ export const FormWrapper = styled.div`
 
 export const TextWrapper = styled.div`
     padding: 16px;
+    max-width: 239px;
     display: flex;
     align-items: center;
     justify-content: center;

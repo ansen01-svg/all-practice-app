@@ -1,21 +1,21 @@
 import React, { Suspense, lazy } from "react";
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Loading from "./components/loading";
 import ProtectedRoute from './components/protected_route';
 import UserContextProvider from './context/user';
-import Register from './pages/register';
+import Login from './pages/login';
 import SharedLayout from './pages/shared_layout';
 
 
-const LoginPage = lazy(() => import('./pages/login'));
-const HomePage = lazy(() => import('./pages/home'));
-const ProfilePage = lazy(() => import('./pages/profile'));
-const ErrorPage = lazy(() => import('./pages/error'));
+const Register = lazy(() => import('./pages/register'));
+const Home = lazy(() => import('./pages/home'));
+const Profile = lazy(() => import('./pages/profile'));
+const Error = lazy(() => import('./pages/error'));
 
 const App = () => {
     return (
         <>
-            <BrowserRouter>
+            <Router>
                 <Routes>
                     <Route path="/" element={
                             <ProtectedRoute>
@@ -27,28 +27,28 @@ const App = () => {
                     >
                         <Route index element={
                             <Suspense fallback={<Loading />}>
-                                <HomePage /> 
+                                <Home /> 
                             </Suspense>
                         } />
                         <Route path='profile' element={
                             <Suspense fallback={<Loading />}>
-                                <ProfilePage /> 
+                                <Profile /> 
                             </Suspense>
                         } />
                     </Route>
-                    <Route path="/register" element={ <Register /> } />
-                    <Route path="/login" element={
+                    <Route path="/register" element={
                         <Suspense fallback={<Loading />}>
-                            <LoginPage /> 
+                            <Register /> 
                         </Suspense>
                     } />
+                    <Route path="login" element={ <Login /> } />
                     <Route path="*" element={
                         <Suspense fallback={<Loading />}>
-                            <LoginPage /> 
+                            <Error /> 
                         </Suspense>
                     } />
                 </Routes>
-            </BrowserRouter>
+            </Router>
         </>
     )
 }

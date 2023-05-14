@@ -5,7 +5,7 @@ let sendCookies = (payload, res) => {
 
     let validity = new Date(30 * 24 * 60 * 60);
 
-    res.cookie('token', token, {
+    res.cookie('userToken', token, {
         httpOnly : true,
         maxAge : validity,
         secure : process.env === 'production',
