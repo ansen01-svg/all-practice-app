@@ -1,11 +1,6 @@
 import { createTheme } from "@mui/material";
 
 const theme = createTheme({
-  pallete: {
-    primary: {
-      buttonColor: '#238636',
-    }
-  } ,
   typography: {
     fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Open Sans, Helvetica Neue, sans-serif',
     allVariants: {
@@ -48,6 +43,7 @@ const theme = createTheme({
           '& .MuiOutlinedInput-root': {  // - The Input-root, inside the TextField-root
             '& fieldset': {            // - The <fieldset> inside the Input-root
                 borderColor: 'rgb(54, 51, 51)',   // - Set the Input border
+                color: 'white',
             },
             '&:hover fieldset': {
               borderColor: '#1976d2',
@@ -55,6 +51,23 @@ const theme = createTheme({
             // '&.Mui-focused fieldset': { // - Set the Input border when parent is focused 
             //   borderColor: 'green',
             // },
+          }
+        }
+      }
+    },
+    MuiInputBase: {
+      styleOverrides: {
+        root: {
+          color: '#fff'
+        }
+      }
+    },
+    MuiButton: {
+      styleOverrides: {
+        root: {
+          "&.Mui-disabled": {
+            background: "#1c55a6",
+            color: "#fff"
           }
         }
       }

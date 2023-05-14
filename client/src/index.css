@@ -2,7 +2,9 @@
     --form_color: #21262d;
     --auth_button_color: #238636;
     --border_color: #30363d;
-    --blue_prmary: #2f81f7;
+    --blue_primary: #2f81f7;
+    --blue_secondary: #1c55a6;
+    --header_background_color: #161b22;
 }
 
 *, ::before, ::after {

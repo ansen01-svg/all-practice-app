@@ -2,17 +2,17 @@ let verifyToken = require('../utils/verify_token');
 let { Unauthenticated } = require('../errors'); 
 
 let authentication = (req, res, next) => {
-    let { token } = req.signedCookies;
+    let { userToken } = req.signedCookies;
 
-    if (!token) {
+    if(!userToken) {
         throw new Unauthenticated(`Unauthenticated user`);
     }
 
     try {
-        let verifiedToken = verifyToken(token);
+        let verifiedToken = verifyToken(userToken);
         req.user = verifiedToken;
         return next();
-    } catch (error) {
+    } catch(error) {
         throw new Unauthenticated(`Unauthenticated user`);
     }
 };

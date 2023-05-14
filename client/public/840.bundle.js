@@ -1,1 +1,1 @@
-"use strict";(self.webpackChunkclient=self.webpackChunkclient||[]).push([[840],{206:(e,n,t)=>{t.r(n),t.d(n,{default:()=>c});var r=t(294);const c=function(){return r.createElement("div",null,"Error")}}}]);
+"use strict";(self.webpackChunkclient=self.webpackChunkclient||[]).push([[840],{4840:(e,n,t)=>{t.r(n),t.d(n,{default:()=>c});var r=t(7294);const c=function(){return r.createElement("div",null,"Error")}}}]);
