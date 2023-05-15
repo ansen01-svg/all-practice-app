@@ -70,7 +70,7 @@ const FormHolder = () => {
                 <InputHolder>
                     <Label
                         labelFor='username'
-                        labelText='username'
+                        labelText='Username'
                     />
                     <CredentialsInput
                         name='username'
@@ -85,7 +85,7 @@ const FormHolder = () => {
                 <InputHolder>
                     <Label
                         labelFor='password'
-                        labelText='password'
+                        labelText='Password'
                     />
                     <CredentialsInput
                         name='password'

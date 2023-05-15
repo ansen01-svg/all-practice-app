@@ -10,6 +10,8 @@ import SharedLayout from './pages/shared_layout';
 const Register = lazy(() => import('./pages/register'));
 const Home = lazy(() => import('./pages/home'));
 const Profile = lazy(() => import('./pages/profile'));
+const About = lazy(() => import('./pages/about'));
+const Dashboard = lazy(() => import('./pages/dashboard'));
 const Error = lazy(() => import('./pages/error'));
 
 const App = () => {
@@ -33,6 +35,16 @@ const App = () => {
                         <Route path='profile' element={
                             <Suspense fallback={<Loading />}>
                                 <Profile /> 
+                            </Suspense>
+                        } />
+                        <Route path='about' element={
+                            <Suspense fallback={<Loading />}>
+                                <About /> 
+                            </Suspense>
+                        } />
+                        <Route path='dashboard' element={
+                            <Suspense fallback={<Loading />}>
+                                <Dashboard /> 
                             </Suspense>
                         } />
                     </Route>
