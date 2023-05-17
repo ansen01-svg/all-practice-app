@@ -14,6 +14,11 @@
     padding: 0;
 }
 
+body {
+    overflow-x: hidden;
+    scrollbar-color: #30363d;
+}
+
 a {
     text-decoration: none;
 }

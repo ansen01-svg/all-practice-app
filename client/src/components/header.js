@@ -139,7 +139,7 @@ const ModalNav = () => {
             <ModalLink>
                 <PageLink
                     linkTo='/profile'
-                    title='Ansen Bey'
+                    title='Profile'
                 />
             </ModalLink>
             <ModalLink>
@@ -263,7 +263,6 @@ const UserWrapper = styled.div`
 `
 
 const UserButton = styled.button`
-width: 100%;
     background: none;
     outline: none;
     border: none;
@@ -272,7 +271,7 @@ width: 100%;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     cursor: pointer;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: flex-start;
     gap: 5px;
 `
