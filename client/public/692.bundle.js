@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkclient=self.webpackChunkclient||[]).push([[692],{5692:(e,t,n)=>{n.r(t),n.d(t,{default:()=>c});var u=n(7294);const c=function(){return u.createElement("div",null,"About")}}}]);

@@ -1,17 +1,17 @@
 const links = [
     {
         id: 1,
-        to: '/about',
+        to: 'about',
         title: 'About'
     },
     {
         id: 2,
-        to: '/dashboard',
+        to: 'dashboard',
         title: 'Dashboard'
     },
     {
         id: 3,
-        to: '/blogs',
+        to: 'blogs',
         title: 'Blogs'
     },
 ]
