@@ -13,7 +13,7 @@ const UserContextProvider = ({ children }) => {
     const getUser = () => {
         fetch(api_endpoint, {
             method: 'GET',
-            headers: { 'Content-Type':'application/json;utf-8' },
+            headers: { 'Content-Type':'application/json' },
         })
         .then(response => response.json())
         .then(data => setUser(data))

@@ -48,7 +48,7 @@ const App = () => {
                             </Suspense>
                         } />
                     </Route>
-                    <Route path="/register" element={
+                    <Route path="register" element={
                         <Suspense fallback={<Loading />}>
                             <Register /> 
                         </Suspense>
