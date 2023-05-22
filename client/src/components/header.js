@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useMemo, } from "react";
 import styled from 'styled-components';
 import Icon from './icon';
-import { NavLink, Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { Typography } from '@mui/material';
 import MenuRoundedIcon from '@mui/icons-material/MenuRounded';
 import links from '../utils/links'; 
+import { myUserContext } from '../context/user';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 
 
@@ -19,7 +20,7 @@ const Header = () => {
 const SubHeader = () => {
 
     const [showHeaderContent, setShowHeaderContent] = useState(false);
-
+console.log('subHeader triggered re render')
     const handleClick = () => {
         setShowHeaderContent(!showHeaderContent)
     }
@@ -44,24 +45,31 @@ const SubHeader = () => {
 
 const HeaderContent = ({ className }) => {
 
+    const { user } = myUserContext();
     const [showSignoutModal, setShowSignoutModal] = useState(false);
 
     const handleClick = () => {
         setShowSignoutModal(!showSignoutModal)
     }
 
+    // const currentUser = useMemo(() => user, [user])
+
     return (
-        <HeaderContentWrapper
-            className={className}
-        >
-            <Nav />
-            <UserHolder handleClick={handleClick} />
+        <HeaderContentWrapper className={className}>
+            <Nav 
+                username={user && user.username}
+            />
+            <UserHolder
+                handleClick={handleClick}
+                username={user && user.username}
+            />
             <SignOutModal showSignoutModal={showSignoutModal} />
         </HeaderContentWrapper>
     )
 }
 
-const Nav = () => {
+const Nav = React.memo(({ username }) => {
+    console.log('nav re rendered')
     return (
         <NavWrapper>
             {
@@ -80,15 +88,16 @@ const Nav = () => {
                 <LinkHolder>
                     <PageLink
                         linkTo='profile'
-                        title='Profile'
+                        title={username}
                     />
                 </LinkHolder>
             </SingleLinkWrapper>
         </NavWrapper>
     )
-}
+})
 
 const LinkHolder = ({ children }) => {
+    console.log('linkholder re rendered')
     return (
         <LinkHolderWrapper>
             { children }
@@ -97,6 +106,9 @@ const LinkHolder = ({ children }) => {
 }
 
 const PageLink = ({ linkTo, title }) => {
+
+    console.log('pageLink re rendered')
+
     return (
         <NavLinkWrapper
             to={linkTo}
@@ -106,14 +118,15 @@ const PageLink = ({ linkTo, title }) => {
     )
 }
 
-const UserHolder = ({ handleClick }) => {
+const UserHolder = React.memo(({ handleClick, username }) => {
+    console.log('userHolder re rendered')
     return (
         <UserWrapper>
             <UserButton onClick={handleClick} >
                 <Typography
                     variant="p1"
                 >
-                    Ansen Bey
+                    {username}
                 </Typography>
                 <ArrowDropDownIcon
                     sx={{ color: 'white' }}
@@ -121,9 +134,10 @@ const UserHolder = ({ handleClick }) => {
             </UserButton>
         </UserWrapper>
     )
-}
+})
 
 const SignOutModal = ({ showSignoutModal }) => {
+    console.log('signoutModal re rendered')
     return (
         <SignOutWrapper
             className={ showSignoutModal ? 'show_signout_modal' : '' }
@@ -134,6 +148,7 @@ const SignOutModal = ({ showSignoutModal }) => {
 }
 
 const ModalNav = () => {
+    console.log('navModal re rendered')
     return (
         <ModalNavWrapper>
             <ModalLink>
@@ -152,6 +167,7 @@ const ModalNav = () => {
 }
 
 const ModalLink = ({ children }) => {
+    console.log('modalLink re rendered')
     return (
         <ModalLinkWrapper>
             { children }

@@ -24,7 +24,8 @@ app.use(rateLimiter({
     max : 60
 }));
 app.use(cors({
-    origin: '*'
+    origin: process.env.CLIENT,
+    credentials: true,
 }));
 app.use(helmet());
 app.use(xss_clean());
