@@ -49,18 +49,22 @@ const FormHolder = () => {
         e.preventDefault();
         loginUser()
         setCredentials(credentialFields)
-        document.cookie = 'token=userToken'
-        navigate('/')
     }
 
     const loginUser = () => {
         fetch(api_endpoint, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(credentials)
+            body: JSON.stringify(credentials),
+            withCredentials: true,
+            credentials: 'include',
         })
-        .then(response => response.json())
-        .then(data => console.log(data))
+        .then(response => {
+            if(response.status === 200) {
+                document.cookie = 'token=userToken'
+                navigate('/')
+            }
+        })
         .catch(error => console.log(error))
     }
 

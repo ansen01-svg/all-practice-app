@@ -8,20 +8,25 @@ const UserContextProvider = ({ children }) => {
 
     const [user, setUser] = useState(null);
 
-    useEffect(() => getUser(), []);
+    useEffect(() => {
+        // setTimeout(() => getUser(), 1000)
+        getUser()
+    }, []);
 
     const getUser = () => {
         fetch(api_endpoint, {
             method: 'GET',
-            headers: { 'Content-Type':'application/json' },
+            headers: { 'Content-Type': 'application/json' },
+            withCredentials: true,
+            credentials: 'include',
         })
         .then(response => response.json())
-        .then(data => setUser(data))
+        .then(data => setUser(data.user))
         .catch(error => console.log(error))
     }
 
     return (
-        <userContext.Provider value={ user }>
+        <userContext.Provider value={{ user }}>
             { children }
         </userContext.Provider>
     )
